@@ -60,25 +60,35 @@ textarea{
 .note-card{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     background-color: whitesmoke;
     padding: 1rem 1rem 2rem 1rem;
     margin: 1rem;
     width: fit-content;
-    min-width: 10rem;
+    min-width: 30rem;
     max-width: 30rem;
     height: fit-content;
     min-height: 15rem;
     max-height: 15rem;
 }
 
-.note-card > h5{
+.note-card .content {
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.note-card > .content{
     text-wrap: balance;
     text-align: justify;
+    padding: 1rem 0.2rem 0rem 0.2rem;
+}
+
+.note-card-btns{
+    display: flex;
+    margin-top: auto;
 }
 
 .note-card > div > .btn{
-    margin: 0rem 0.5rem 0rem 0rem;
+    margin: auto 0.5rem 0rem 0rem;
 }
 
 .header{
@@ -106,17 +116,41 @@ textarea{
     text-align: center;
     justify-content: center;
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
+.btn:hover {
+    background-color: black;
+    color:white;
+    font-weight: 600;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
 
 .btn-edit{
     background-color: rgba(0, 128, 0, 0.336);
     border: 2px solid green;
 }
 
+.btn-edit:hover{
+    background-color: green;
+    color:white;
+}
+
 .btn-delete{
     background-color: rgba(255, 0, 0, 0.336);
     border: 2px solid red;
+}
+
+
+.btn-delete:hover{
+    background-color: red;
+    color:white;
 }
 
 .btn-inherit-width{
@@ -125,9 +159,8 @@ textarea{
     max-width: stretch;
 }
 
-.note-card > div{
-
-    display: flex;
-    margin-top: 2rem ;
-
+@media(max-width:783px){
+    .note-card{
+        min-width: 10rem;
+    }
 }

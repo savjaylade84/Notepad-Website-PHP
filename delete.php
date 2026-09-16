@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "lab_db";
+$database = "note_db";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -13,13 +13,19 @@ if ($conn->connect_error) {
 
 $id = $_GET["id"];
 
-$sql = "DELETE FROM users WHERE id = $id";
+$sql = "DELETE FROM notes WHERE id = $id";
 
 if ($conn->query($sql) === TRUE) {
-    echo "User deleted successfully.";
+    echo "<script>
+                alert('Successfully to Delete Note');
+         </script>";
 } else {
-    echo "Error deleting user: " . $conn->error;
+    echo "<script>
+                alert('Failed to Delete Note');
+        </script>";
 }
+
+echo "<script>window.location.href = 'index.php';</script>";
 
 $conn->close();
 

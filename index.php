@@ -39,10 +39,10 @@ $result = $conn->query("SELECT ID,Title,Content,date_created FROM notes;");
         <div class="note-card">
             <h3><?= $note["Title"] ?></h3>
             <h5><?= $note["date_created"] ?></h5>
-            <h5><?= $note["Content"] ?></h5>
-            <div>
+            <h5 class="content"><?= $note["Content"] ?></h5>
+            <div class="note-card-btns">
                 <a class="btn btn-edit" href="edit.php?id=<?= $note["ID"] ?>">Edit</a>
-                <a class="btn btn-delete" href="delete.php?id=<?= $note["ID"] ?>" onclick="return confirm('Are you sure you want to delete this user?');">
+                <a class="btn btn-delete" href="delete.php?id=<?= $note["ID"] ?>" onclick="return confirm('Are you sure you want to delete this note?');">
                     Delete
                 </a>
             </div>

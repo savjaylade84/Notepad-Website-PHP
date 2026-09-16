@@ -21,14 +21,14 @@ $sql = "UPDATE notes
 
 if ($conn->query($sql) === TRUE) {
     echo "<script>
-                alert('Update Successfully');
+                alert('Successfully to Update Note');
                 window.location.href = 'index.php';
-         </script>";
+        </script>";
 } else {
-        echo "<script>
-                        alert('Note Failed to Added');
-                        window.location.href = 'editphp';
-             </script>";
+    echo "<script>
+                alert('Failed to Update Note');
+                window.location.href = 'edit.php';
+        </script>";
 }
 
 $conn->close();
