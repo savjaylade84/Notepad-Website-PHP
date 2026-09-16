@@ -23,7 +23,7 @@ A simple web-based notepad application built with **PHP, MySQL, HTML, and CSS**.
 ## Project Structure
 
 ```text
-Jaysons-Notepad/
+Notepad/
 │
 ├── index.php
 ├── create.php

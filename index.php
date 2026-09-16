@@ -22,7 +22,7 @@ $result = $conn->query("SELECT ID,Title,Content,date_created FROM notes;");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Edit Users</title>
+    <title>Jayson's Notepad - Home</title>
 </head>
 <body>
     
