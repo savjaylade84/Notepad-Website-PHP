@@ -1,9 +1,10 @@
 <?php
+require_once 'loadenv.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "note_db";
+$servername = $_ENV['DB_HOST']; 
+$username = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASS'];
+$database = $_ENV['DB_NAME'];
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -19,7 +20,10 @@ $sql = "UPDATE notes
         SET Title = '$title', Content = '$content'
         WHERE id = $id";
 
-if ($conn->query($sql) === TRUE) {
+$statement = $conn->prepare("UPDATE notes set Title = ?, Content = ? where id = ?");
+$statement->bind_param("sss", $title, $content, $id);
+
+if ($statement->execute()) {
     echo "<script>
                 alert('Successfully to Update Note');
                 window.location.href = 'index.php';

@@ -7,6 +7,14 @@
     bottom:0;
 }
 
+footer{
+    background-color: black;
+    margin-top: auto;
+    color: white;
+    text-align: center;
+    padding: 1rem 0rem;
+}
+
 textarea{
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -50,7 +58,7 @@ textarea{
 .section-form{
     display: flex;
     justify-content: center;
-    padding: 3rem 0rem;
+    padding: 5rem 0rem;
 }
 
 .create-form > div,.create-form > button{

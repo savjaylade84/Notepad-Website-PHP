@@ -1,9 +1,10 @@
 <?php 
+require_once 'loadenv.php';
 
-$servername = "localhost"; 
-$username = "root";
-$password = "";
-$database = "note_db";
+$servername = $_ENV['DB_HOST']; 
+$username = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASS'];
+$database = $_ENV['DB_NAME'];
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -56,6 +57,9 @@ $note = $result->fetch_assoc();
 
 </section>
 
+<footer>
+    This project is for educational and personal development purposes.
+</footer>
 
 </body>
 </html>
