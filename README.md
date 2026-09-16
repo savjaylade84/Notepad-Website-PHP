@@ -27,6 +27,9 @@ Notepad/
 │
 ├── index.php
 ├── create.php
+├── .env
+├── .gitignore
+├── loadenv.php
 ├── edit.php
 ├── update.php
 ├── delete.php
@@ -59,14 +62,14 @@ CREATE TABLE notes (
 
 The application currently uses the following MySQL configuration:
 
-```php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "note_db";
+```md
+DB_HOST =localhost
+DB_USER =root
+DB_PASS =
+DB_NAME =note_db
 ```
 
-If your MySQL configuration is different, update these values in the PHP files that connect to the database.
+If your MySQL configuration is different, update these values in the .env files.
 
 ## How to Run
 
