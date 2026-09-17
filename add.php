@@ -1,42 +1,29 @@
 <?php 
-require_once 'loadenv.php';
-
-$servername = $_ENV['DB_HOST']; 
-$username = $_ENV['DB_USER'];
-$password = $_ENV['DB_PASS'];
-$database = $_ENV['DB_NAME'];
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection Faild". $conn->connect_error);
-}
+require_once 'connect_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $title = $_POST["title"];
     $content = $_POST["content"];
 
-    $statement = $conn->prepare("INSERT INTO notes (Title,Content) VALUES (?,?)");
-    $statement->bind_param("ss", $title,$content);
+    $result = $note_query->add_note($title, $content);
 
-    if( $statement->execute()){
+    if($result == true){
         echo "<script>
                         alert('Note Added Successfully');
                         window.location.href = 'index.php';
             </script>";
-    }else{
+    }else if($result == false){
         echo "<script>
                         alert('Note Failed to Added');
                         window.location.href = 'add.php';
             </script>";
+    }else{
+        echo "<script>window.location.href = '404.php';</script>";
     }
-
-    $statement->close();
 
 }
 
-$conn->close();
 
 ?>
 

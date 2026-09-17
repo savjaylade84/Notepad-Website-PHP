@@ -1,34 +1,23 @@
 <?php
-require_once 'loadenv.php';
-
-$servername = $_ENV['DB_HOST']; 
-$username = $_ENV['DB_USER'];
-$password = $_ENV['DB_PASS'];
-$database = $_ENV['DB_NAME'];
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection Failed: " . $conn->connect_error);
-}
+require_once 'connect_db.php';
 
 $id = $_GET["id"];
 
-$statement = $conn->prepare("DELETE FROM notes WHERE id = ?");
-$statement->bind_param("s", $id);
+$result = $note_query->delete_note($id);
 
-if ($statement->execute()) {
+if ($result) {
     echo "<script>
                 alert('Successfully to Delete Note');
          </script>";
-} else {
+} else if($result){
     echo "<script>
                 alert('Failed to Delete Note');
         </script>";
-}
+}else{
+        echo "<script>window.location.href = '404.php';</script>";
+    }
 
 echo "<script>window.location.href = 'index.php';</script>";
 
-$conn->close();
 
 ?>

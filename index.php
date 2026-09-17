@@ -1,21 +1,9 @@
 <?php 
-require_once 'loadenv.php';
+require_once 'connect_db.php';
 
-$servername = $_ENV['DB_HOST']; 
-$username = $_ENV['DB_USER'];
-$password = $_ENV['DB_PASS'];
-$database = $_ENV['DB_NAME'];
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection Faild". $conn->connect_error);
-}
-
-$result = $conn->query("SELECT ID,Title,Content,date_created FROM notes;");
+$result = $note_query->get_all_note();
 
 ?>
-
 
 <html lang="en">
 <head>
